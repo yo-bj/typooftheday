@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Typooftheday by yo-bj</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Typooftheday</h1>
+        <p class="header">Fix title misspellings in Sierra through DNA, php, and pymarc</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/yo-bj/typooftheday/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/yo-bj/typooftheday/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/yo-bj/typooftheday">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/yo-bj">yo-bj</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="about-this-repo" class="anchor" href="#about-this-repo"><span class="octicon octicon-link"></span></a>About this repo</h1>
+
+<p>This application has two parts:</p>
+
+<ul>
+<li>a php script that searches Sierra DNA for either a partial or full misspelling in the title index</li>
+<li>a python script that takes the results from the search above and fixes said misspellings</li>
+</ul><p><strong>This is still a work in progress.</strong> This script will use the API for MARC data export once it is released. This also only takes care of the 245 field. See the TODO list below for information about what other fields will be supported.</p>
+
+<p>This script takes into account "transcribed" misspellings in both AACR2 (via [sic]) and RDA (via 246 $i).</p>
+
+<h1>
+<a name="required-disclaimer" class="anchor" href="#required-disclaimer"><span class="octicon octicon-link"></span></a>Required disclaimer</h1>
+
+<p><strong>Everything here is as-is. Run at your own risk.</strong> It is not my fault that your computer rickrolls you after running one of the scripts below.</p>
+
+<p>In addition, the queries found in this repo are based on the local setup that my library has with their ILS. YMMV with several of these queries, and it would be worthwhile to ask someone who is familiar with the local data setup if you are looking to run a query on a particular piece of data.</p>
+
+<h1>
+<a name="required" class="anchor" href="#required"><span class="octicon octicon-link"></span></a>Required</h1>
+
+<ul>
+<li>pymarc</li>
+<li>python (2.7.3)</li>
+<li>php</li>
+<li>access to Sierra DNA</li>
+</ul><h1>
+<a name="a-note-about-the-queries" class="anchor" href="#a-note-about-the-queries"><span class="octicon octicon-link"></span></a>A Note About the Queries</h1>
+
+<p>This app uses various SQL queries I have constructed for retrieving data from Sierra's postgresql database (SierraDNA). The table structure, as well as what data lives where, is in the <a href="http://techdocs.iii.com/sierradna/">CS Direct Techdocs section</a> (CS Direct login required). You also might want to consult the <a href="http://csdirect.iii.com/sierrahelp/Default.htm#ssql_direct_access.html">Sierra help documentation about DNA</a> for more information (again, login required).</p>
+
+<p>One recommendation from III is to use the EXPLAIN command to determine the system cost of a particular query. This is especially important when you are modifying any queries found under this folder. <strong>You will lock up the system if you are not careful with your queries.</strong></p>
+
+<h1>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<ul>
+<li>flesh out readme file (metatodo?)</li>
+<li>edit python record to fix misspellings in the following fields
+-- 246
+-- 505 $t</li>
+<li>create option to create a results file without having it go through python script, in case misspelling is more complex than "search and replace"</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
